@@ -1,0 +1,19 @@
+{
+    "name": "entreat/entreat",
+    "description": "this will handle HTTP request from your application",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SamuelEzedi",
+            "email": "sammyandrew44@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Dreamaker\\Entreat\\": "src/"
+        }
+    }
+}
