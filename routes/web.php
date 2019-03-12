@@ -20,7 +20,7 @@ Route::post('/signup', 'MainController@signup');
 Route::get('/signin', 'MainController@signin');
 Route::post('/signin', 'MainController@signin');
 
-Route::get('/about', 'MainController@about');
+Route::get('/about', 'MainController@abou');
 Route::post('/about', 'MainController@about');
 
 Route::get('/completed/{id?}', 'MainController@completed');

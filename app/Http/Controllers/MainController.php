@@ -6,13 +6,10 @@ use App\Http\Requests;
 use App\Http\Controllers;
 use Auth;
 use Carbon\Carbon;
-use Entrust;
 use Session;
-use Hash;
-use Excel;
+// use Hash;
 use Input;
 use DB;
-use QrCode;
 use App\User;
 
 class MainController extends Controller
@@ -30,13 +27,17 @@ class MainController extends Controller
 			if(!Auth::check()){
 				$data['error'] = "Sorry, you need to create an account!";
 			} else {
-				if(DB::table('todolist')->insert([
-					'userid'		=> Auth::user()->id,
-					'todo'			=> trim($request['todo']),
-					'status' 		=> 1,
-					'timecreated' 	=> date('F j, Y'),
-					'timecompleted' => ""
-				])){
+			    
+			    $seve = DB::table('todolist')->insert([
+    					'userid'		=> Auth::user()->id,
+    					'todo'			=> trim($request['todo']),
+    					'stats' 		=> 1,
+    					'timecreated' 	=> date('F j, Y'),
+    					'timecompleted' => ""
+    				]);
+    		
+    				
+				if($save){
 					$data['success'] = "Todo was added successfully";
 				} else {
 					$data['error'] = "Something went wrong!";
@@ -69,17 +70,10 @@ class MainController extends Controller
 			$email = $request['email'];
 			$password = Hash::make($request['password']);
 
-			$user = new User;
-			$user->name = $name;
-			$user->email = $email;
-			$user->password = $password;
-			$user->save();
+// 			
 
-			if($user->save()){
-				$data['success'] = 'You were registered successfully!';
-			} else {
-				$data['error'] = 'Looks like something went wrong!';
-			}
+			//REGISTRATION ISNT COMPLETE PLEASE FINISH THIS
+			
 		}
 
 		return view('signup', $data);
