@@ -12,7 +12,7 @@ class EntreatServiceProvider extends ServiceProvider
     //    $this->loadRoutesFrom(__DIR__.'/routes/web.php');
     //    print_r($_SERVER);
         $task = new Task;
-        print_r($task);
+        // print_r($task);
     }
 
     public function register()
